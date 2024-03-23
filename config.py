@@ -7,6 +7,7 @@ DB_CONFIG = {
     'host': '',
 }
 
+OPEN_AI_KEY = ''
 
 
 with open("secret.json", 'r') as file:
@@ -17,6 +18,6 @@ with open("secret.json", 'r') as file:
     DB_CONFIG['database'] = data['database']
     DB_CONFIG['host'] = data['host']
 
-
+    OPEN_AI_KEY = data['openai_key']
 
 
