@@ -90,8 +90,8 @@ def summarize_text(text):
 
 def get_next_target_chat(history, new_chat,name, mode):
     res = client.chat.completions.create(
-        # model="ft:gpt-3.5-turbo-0125:aperture::95qtMSkz",
-        model="ft:gpt-3.5-turbo-0125:aperture::9640Rx5f",
+        model="ft:gpt-3.5-turbo-0125:aperture::95qtMSkz",
+        # model="ft:gpt-3.5-turbo-0125:aperture::9640Rx5f",
         # model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": f"너는 대화를 이어나가야 하는 역할을 맡았고, 너의 이름은 '{name}'이야." + "다만 나는 이미 하늘의 별이 되었어. 만약 잊지 못하겠다고 하거나 보고 싶다고 한다면 잊혀져야 한다는 것을 설득해야 해. 그리고 이별을 받아들이도록 해야해." if mode == "timetogo" else ""},
