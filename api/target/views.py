@@ -106,7 +106,7 @@ async def add_chat(payload: AddChatModel, db: Session = Depends(get_db)):
     target_chat_data.append({"role": "user", "content": payload.chat})
 
     mode = "timetogo" if (datetime.now() - target_row.target_lost_date).days > 15 else "normal"
-    received_chat = get_next_target_chat(target_chat_data, payload.chat, mode)
+    received_chat = get_next_target_chat(target_chat_data, payload.chat, target_row.target_name, mode)
     print(received_chat)
     target_chat_data.append({"role": "assistant", "content": received_chat})
 
