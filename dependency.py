@@ -100,7 +100,7 @@ def get_next_target_chat(history, new_chat,name, mode):
 
 
 
-        ], top_p=0.88, temperature=0.13, max_tokens=150
+        ], top_p=0.9, temperature=0.11, max_tokens=150
     )
     print(res)
     res_text = res.choices[0].message.content
@@ -124,7 +124,7 @@ if __name__ == "__main__":
 
     result = get_messages_from_kakaotalk_export(open("kakao.txt", "r", encoding='UTF8').read(), "홍길동")
 
-    q = "뭐 먹고 있어?"
+    q = "날씨 춥다 ㅠㅠ"
     #
     result = get_next_target_chat(result[:], q, "홍길동", "normal")
     #
