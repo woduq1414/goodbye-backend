@@ -33,3 +33,13 @@ class Target(Base):
     target_history = Column(String, nullable=True)
 
 
+class Diary(Base):
+    __tablename__ = "diary"
+
+    seq = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    user_seq = Column(Integer, ForeignKey("user.seq"))
+    target_seq = Column(Integer, ForeignKey("target.seq"))
+
+    diary_dday = Column(Integer, nullable=False)
+    diary_content = Column(String, nullable=False)
+    diary_add_datetime = Column(DateTime, nullable=False)
