@@ -100,7 +100,7 @@ def get_next_target_chat(history, new_chat,name, mode):
 
 
 
-        ], top_p=0.83, temperature=0.13, max_tokens=150
+        ], top_p=0.88, temperature=0.13, max_tokens=150
     )
     print(res)
     res_text = res.choices[0].message.content
