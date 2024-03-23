@@ -121,11 +121,11 @@ def get_next_target_chat(history, new_chat,name, mode):
 
 if __name__ == "__main__":
 
-    result = get_messages_from_kakaotalk_export(open("kakao.txt", "r", encoding='UTF8').read(), "강우진")
+    result = get_messages_from_kakaotalk_export(open("kakao.txt", "r", encoding='UTF8').read(), "홍길동")
 
     q = "요즘 뭐해?ㅋㅋ"
     #
-    result = get_next_target_chat(result[:], q, "강우진", "normal")
+    result = get_next_target_chat(result[:], q, "홍길동", "normal")
     #
     print("Q: ", q)
     print("Result: ", result)
