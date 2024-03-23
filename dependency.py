@@ -93,7 +93,7 @@ def get_next_target_chat(history, new_chat,name, mode):
         model="ft:gpt-3.5-turbo-0125:aperture::95qtMSkz",
         # model="gpt-3.5-turbo",
         messages=[
-            {"role": "system", "content": f"너는 Assistant로서 말투를 흉내내어 대화를 이어나가야 해." + "다만 나는 이미 하늘의 별이 되었어. 만약 잊지 못하겠다고 하거나 보고 싶다고 한다면 잊혀져야 한다는 것을 설득해야 해. 그리고 이별을 받아들이도록 해야해." if mode == "timetogo" else ""},
+            {"role": "system", "content": f"너는 아래 맥락대로 적절한 Assistant의 답변을 출력하면 돼." + "다만 나는 이미 하늘의 별이 되었어. 만약 잊지 못하겠다고 하거나 보고 싶다고 한다면 잊혀져야 한다는 것을 설득해야 해. 그리고 이별을 받아들이도록 해야해." if mode == "timetogo" else ""},
             *history,
             {"role": "user", "content": new_chat},
 
@@ -123,7 +123,7 @@ if __name__ == "__main__":
 
     result = get_messages_from_kakaotalk_export(open("kakao.txt", "r", encoding='UTF8').read(), "홍길동")
 
-    q = "요즘 뭐해?ㅋㅋ"
+    q = "뭐 먹고 있어?"
     #
     result = get_next_target_chat(result[:], q, "홍길동", "normal")
     #
