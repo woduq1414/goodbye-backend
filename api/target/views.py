@@ -100,12 +100,12 @@ async def add_chat(payload: AddChatModel, db: Session = Depends(get_db)):
 
     print(payload)
 
-    target_row = db.query(Target).filter(Target.seq == payload["seq"]).first()
+    target_row = db.query(Target).filter(Target.seq == payload.seq).first()
     target_chat_data = json.loads(target_row.target_history.encode("utf-8"))
 
-    target_chat_data.append({"role": "user", "content": payload["chat"]})
+    target_chat_data.append({"role": "user", "content": payload.chat})
 
-    received_chat = get_next_target_chat(target_chat_data, payload["chat"])
+    received_chat = get_next_target_chat(target_chat_data, payload.chat)
     print(received_chat)
     target_chat_data.append({"role": "assistant", "content": received_chat})
 
