@@ -88,18 +88,18 @@ def summarize_text(text):
     summed_text = summ_res.choices[0].message.content
     return summed_text
 
-def mimic_target_chat(data, new_chat):
-    summ_res = client.chat.completions.create(
+def get_next_target_chat(history, new_chat):
+    res = client.chat.completions.create(
         model="ft:gpt-3.5-turbo-0125:aperture::95qtMSkz",
         messages=[
             {"role": "system", "content": "말투를 흉내내서 대화를 이어나가"},
-            *data,
+            *history,
             {"role": "user", "content": new_chat}
         ], top_p=0.9, temperature=0.1, max_tokens=45
     )
-    print(summ_res)
-    summed_text = summ_res.choices[0].message.content
-    return summed_text
+    print(res)
+    res_text = res.choices[0].message.content
+    return res_text
 
 
 

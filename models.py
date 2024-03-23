@@ -24,8 +24,12 @@ class Target(Base):
 
     target_name = Column(String, nullable=False)
 
+    target_lost_date = Column(DateTime, nullable=True)
     target_add_datetime = Column(DateTime, nullable=False)
+    target_relation = Column(String, nullable=True)
 
-    target_history = Column(String, nullable=False)
+
+    target_kakao_chat = Column(String, nullable=True)
+    target_history = Column(String, nullable=True)
 
 
